@@ -1,0 +1,55 @@
+
+;;; exports
+	
+	global	getnum
+
+;;; imports
+	extern  usage
+
+;;; code
+
+	section .text
+
+	;;  expecting rax to point at the string to collect
+	;;  return the answer in r15
+
+getnum:
+	push rbx		; save rbx
+	push r14		; save r14
+
+	xor r15,r15		; zero out r15
+
+l:	
+	cmp byte [rax],0
+	je finish
+
+	;; make sure that we have a legitimate character, leave value in rbx
+
+	xor rbx,rbx
+	mov bl, byte [rax]
+	cmp rbx,0x30
+	jl usage
+	cmp rbx,0x39
+	jg usage
+	sub rbx,0x30
+		
+	;; multiply r15 by using r14
+
+	shl r15,1		; first, double it r15 = r15 * 2
+	mov r14,r15		; second, r14 = r15 * 2
+	shl r15,2		; third, r15 = r15 * 4
+	add r15,r14
+
+        ;; add in character
+	add r15,rbx
+
+	inc rax
+	jmp l
+
+finish:
+	pop r14			; retrieve r14
+	pop rbx			; retrieve rbx
+
+	ret			; answer in r15
+	
+	

@@ -1,0 +1,11 @@
+/Users/iholopez/Desktop/HW1/HW1/bin/Debug/netcoreapp2.1/HW1.deps.json
+/Users/iholopez/Desktop/HW1/HW1/bin/Debug/netcoreapp2.1/HW1.runtimeconfig.json
+/Users/iholopez/Desktop/HW1/HW1/bin/Debug/netcoreapp2.1/HW1.runtimeconfig.dev.json
+/Users/iholopez/Desktop/HW1/HW1/bin/Debug/netcoreapp2.1/HW1.dll
+/Users/iholopez/Desktop/HW1/HW1/bin/Debug/netcoreapp2.1/HW1.pdb
+/Users/iholopez/Desktop/HW1/HW1/obj/Debug/netcoreapp2.1/HW1.csprojAssemblyReference.cache
+/Users/iholopez/Desktop/HW1/HW1/obj/Debug/netcoreapp2.1/HW1.csproj.CoreCompileInputs.cache
+/Users/iholopez/Desktop/HW1/HW1/obj/Debug/netcoreapp2.1/HW1.AssemblyInfoInputs.cache
+/Users/iholopez/Desktop/HW1/HW1/obj/Debug/netcoreapp2.1/HW1.AssemblyInfo.cs
+/Users/iholopez/Desktop/HW1/HW1/obj/Debug/netcoreapp2.1/HW1.dll
+/Users/iholopez/Desktop/HW1/HW1/obj/Debug/netcoreapp2.1/HW1.pdb

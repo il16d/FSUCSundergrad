@@ -1,0 +1,10 @@
+
+※ Comment goes here
+read A
+read B + BROKEN
+sum := A + B
+prod := A * B
+
+※ And here also
+write sum
+write ( sum / 2 )

@@ -1,0 +1,8 @@
+
+
+step1-exercise : step1-exercise.c
+	clang -o step1-exercise step1-exercise.c -lm 
+
+step1-exercise.c : step1-exercise.flex
+	flex -o step1-exercise.c step1-exercise.flex
+

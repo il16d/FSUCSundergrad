@@ -1,0 +1,20 @@
+
+program MYPROG2 ;
+
+variables
+{
+   var VAR1 ;
+   var VAR2 ;
+}
+
+
+functions
+{
+   define FUNC1 ( var X ) : int
+   {
+       if ( X ) then print ( X , X ) ;
+       else print ( X ) ;
+       end
+   }
+
+}

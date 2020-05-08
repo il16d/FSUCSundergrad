@@ -1,0 +1,18 @@
+
+%option noyywrap
+%{
+int linecount = 0;
+%}
+
+%%
+[\n]              linecount++;
+[ \t]+
+.
+%%
+
+int main()
+{
+  yylex();
+  printf("There are %d lines. \n",linecount);
+  exit(0);
+}

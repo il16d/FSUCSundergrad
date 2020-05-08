@@ -1,0 +1,14 @@
+※ Comment goes here
+read A
+read B
+sum := A + B + C
+goto skip
+prod := A * B + C
+
+※ the specified name is destination, not location!
+
+destination skip
+
+※ And here also
+write sum
+write ( sum / 2 )

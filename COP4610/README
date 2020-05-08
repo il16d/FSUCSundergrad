@@ -1,0 +1,20 @@
+
+Files:
+shell.c : our main program
+README: project description
+Makefile: file used to compile program
+
+Makefile: The makefile compiles the program into an executable. 
+          To run the make file, type in the make command within the directory in which the .c file and makefile are stored. 
+          This should create the executable for the program.
+
+Bugs:
+Currently the sections outlined in the project description as part 4, 5, and 10 are incomplete within our program.
+The shortcuts "~", ".", and ".." are not being recognized.
+Alias is creating a segmentation fault. This occurs when attempting to compile.
+
+
+Division of Labor:
+Iho Lopez - Contributed to writing main program; Compiled and tested program
+Felipe Bergano - Contributed to writing main program; creating GIT commit
+Kyle Suarez - Contributed to writing main program; Created README file and Makefile

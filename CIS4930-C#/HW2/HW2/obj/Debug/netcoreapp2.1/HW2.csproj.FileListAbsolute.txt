@@ -1,0 +1,22 @@
+/Users/iholopez/Desktop/HW2/HW2/bin/Debug/netcoreapp2.1/HW2.deps.json
+/Users/iholopez/Desktop/HW2/HW2/bin/Debug/netcoreapp2.1/HW2.runtimeconfig.json
+/Users/iholopez/Desktop/HW2/HW2/bin/Debug/netcoreapp2.1/HW2.runtimeconfig.dev.json
+/Users/iholopez/Desktop/HW2/HW2/bin/Debug/netcoreapp2.1/HW2.dll
+/Users/iholopez/Desktop/HW2/HW2/bin/Debug/netcoreapp2.1/HW2.pdb
+/Users/iholopez/Desktop/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.csprojAssemblyReference.cache
+/Users/iholopez/Desktop/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.csproj.CoreCompileInputs.cache
+/Users/iholopez/Desktop/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.AssemblyInfoInputs.cache
+/Users/iholopez/Desktop/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.AssemblyInfo.cs
+/Users/iholopez/Desktop/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.dll
+/Users/iholopez/Desktop/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.pdb
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/bin/Debug/netcoreapp2.1/HW2.deps.json
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/bin/Debug/netcoreapp2.1/HW2.runtimeconfig.json
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/bin/Debug/netcoreapp2.1/HW2.runtimeconfig.dev.json
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/bin/Debug/netcoreapp2.1/HW2.dll
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/bin/Debug/netcoreapp2.1/HW2.pdb
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.csprojAssemblyReference.cache
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.csproj.CoreCompileInputs.cache
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.AssemblyInfoInputs.cache
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.AssemblyInfo.cs
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.dll
+/Users/iholopez/Desktop/CIS4930 C#/HW2/HW2/obj/Debug/netcoreapp2.1/HW2.pdb

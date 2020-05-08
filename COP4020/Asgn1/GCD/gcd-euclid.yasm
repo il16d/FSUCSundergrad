@@ -1,0 +1,94 @@
+
+;;; exports
+	
+	global gcd
+	
+
+;;; imports
+
+	extern mydiv
+
+	section .text		
+
+
+;;;  gcd --> expects arguments in rbx and rcx; returns answer in rbx
+
+gcd:
+	push rax 		; save the registers we are modifying and aren't used for
+	push rcx		; for a return value
+	push rdx
+	
+;;;T Before getting down to business, let's check our calling arguments
+
+	cmp rbx,0		;T OK, is anybody zero here?
+	je eitherzero		;T A ha!  A suspect!
+	cmp rcx,0		;T Hey, how about you?
+	je eitherzero		;T Yep, you're no good, either
+	
+;;; compare rbx to rcx
+	
+	cmp rbx,rcx
+
+;;; check to see if these are equal
+	
+	je finish
+
+;;; check to see if rbx > rcx
+
+	jg again
+
+;;; if not, swap rbx and rcx so that rbx > rcx
+
+	xchg rbx,rcx
+
+again:
+
+	;; shuffle rbx and rcx up to rax and rbx
+	mov rax,rbx
+	mov rbx,rcx
+
+	;; zero out rdx in preparation for division rdx:rax by rcx
+	xor rdx,rdx
+	
+	;; divide by rcx, remainder is in rdx
+	call mydiv		;T Use my division routine
+	;div rcx
+
+	cmp rdx,0
+	je finish
+
+	mov rbx,rcx
+	mov rcx,rdx
+
+	jmp again
+
+finish:
+
+	pop rdx
+	pop rcx
+	pop rax
+
+	ret
+
+;;T Code addition until end of file
+;;
+;; Here when at least one register was zero.  If they are equal,
+;; then they are BOTH zero and we check for that.	
+;;
+;;Note slight optimization; if they are not both zero and RCX is	
+;;zero, then RBX already has the right thing in it.
+
+eitherzero:
+
+	cmp rbx,rcx		;0,0??
+	je bothzero		;Yep, handle that return
+
+	cmp rcx,0		;Was the divisor the culpret??
+	je finish		;Then RBX is already set up to return
+	mov rbx,rcx		;Otherwise return the divisor
+	jmp finish		;So return that
+
+bothzero:
+
+	xor rbx,rbx		;T Stomp the return register to zero
+	jmp finish		;T We are out of here!

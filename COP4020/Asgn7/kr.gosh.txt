@@ -1,0 +1,37 @@
+(use math.prime)
+
+
+(define (pollard n) 
+    (format #t "Attempting to factor N = ~d with Pollard rho algorithm from Knuth's Algorithm B in section 4.5.4 of TAOCP\n" n)
+    (pollard-helper n 5 2 1 1)
+)
+
+ 
+
+(define (pollard-helper n x xprime k l)
+    (let ((g (gcd (- xprime x) n)))
+    
+    (cond 
+        [ (miller-rabin-prime? n) (format #t "~d\n" n) n]
+        [ (= g 1) 
+            (let ((newx (mod (+ (* x x) 1) n)))
+            (if (= (- k 1) 0)
+                ; if k - 1 == 0: 
+                (pollard-helper n newx x (* 2 l) l )
+                ; else
+                (pollard-helper n newx xprime (- k 1) l)
+            ))
+        ] 
+    
+        [ (equal? g n) "failed"]
+        [else 
+            (format #t "~d\n" g)
+            (pollard-helper (/ n g) (mod x n) (mod xprime n) k l) 
+        ] 
+    ))
+)
+
+;(pollard 35)
+;(car (command-line)) 
+
+(pollard (string->number (car *argv*)))

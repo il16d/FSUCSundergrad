@@ -1,0 +1,123 @@
+/* I think the syntax error in the previous version was that there were too many sections. Note
+   there should only be two '%%' lines. These lines should not have any leading whitespace. Your
+   file had some stray whitespace, which is a problem since flex is very sensitive to leading whitespace.
+
+   Either one of these issues would be fatal.
+
+   The other issue was some of your rules had really complex regular expressions, I simplified as appropriate.
+*/
+
+%option noyywrap
+%{
+  /* I don't think we need any includes here, though I don't think they caused problems either */
+  int linecount = 0;
+
+  /* In C if you want to name a finite set of options enums are the trick. Starting at 258 is
+     conventional in this context, for some reason. YACC, I think.
+
+     yytokentype is a magic name, the return value of yylex.
+  */
+  enum yytokentype {
+      PROGRAM = 258,
+      END,
+      VARIABLES,
+      VAR,
+      FUNCTIONS,
+      DEFINE,
+      STATEMENTS,
+      IF,
+      THEN,
+      ELSE,
+      WHILE,
+      COMMA,
+      LPARENTHESIS,
+      RPARENTHESIS,
+      LBRACE,
+      RBRACE,
+      COLON,
+      SEMICOLON,
+      ID
+    };
+
+  /* yylval is a magic name? It's at least conventional. */
+  char *yylval;
+%}
+
+%%
+[\n]              linecount++;
+[ \t]+
+
+  /*The significant tokens we just return the token code in the enum and possibly populate yylval
+    The returns effectively return from the yylex function in main().*/
+program          { return PROGRAM;}
+end              { return END;}
+variables        { return VARIABLES;}
+var              { return VAR;}
+functions        { return FUNCTIONS;}
+define           { return DEFINE;}
+statements       { return STATEMENTS;}
+if               { return IF;}
+then             { return THEN;}
+else             { return ELSE;}
+while            { return WHILE;}
+","              { return COMMA;}
+"("              { return LPARENTHESIS;}
+")"              { return RPARENTHESIS;}
+"{"              { return LBRACE;}
+"}"              { return RBRACE;}
+":"              { return COLON;}
+";"              { return SEMICOLON;}
+
+  /* For ID tokens we additionally need to copy yytext (for safety) and store him in yyval. */
+[a-zA-Z0-9]+*    { yylval = strdup(yytext); return ID;}
+%%
+
+int main( int argc, char **argv )
+	   
+{
+   enum yytokentype tok;
+   char *tok_name;
+
+   ++argv, --argc;	
+   if ( argc > 0 )
+     yyin = fopen( argv[0], "r" );
+   else
+     yyin = stdin;
+
+   /* yylex will automatically return 0 at EOF */
+   while (tok = yylex()) {
+     switch (tok) {
+       case PROGRAM: tok_name = "PROGRAM"; break;
+       case END: tok_name = "END"; break;
+       case VARIABLES: tok_name = "VARIABLES"; break;
+       case VAR: tok_name = "VAR"; break;
+       case FUNCTIONS: tok_name = "FUNCTIONS"; break;
+       case DEFINE: tok_name = "DEFINE"; break;
+       case STATEMENTS: tok_name = "STATEMENTS"; break;
+       case IF: tok_name = "IF"; break;
+       case THEN: tok_name = "THEN"; break;
+       case ELSE: tok_name = "ELSE"; break;
+       case WHILE: tok_name = "WHILE"; break;
+       case COMMA: tok_name = "COMMA"; break;
+       case LPARENTHESIS: tok_name = "LPARENTHESIS"; break;
+       case RPARENTHESIS: tok_name = "RPARENTHESIS"; break;
+       case LBRACE: tok_name = "LBRACE"; break;
+       case RBRACE: tok_name = "RBRACE"; break;
+       case COLON: tok_name = "COLON"; break;
+       case SEMICOLON: tok_name = "SEMICOLON"; break;
+       case ID: tok_name = "ID";
+     };
+
+     /* Yes, we test if tok == id twice. It feels better to have all cases in the switch, but
+        feel free to change it.
+     */
+     if (tok != ID)
+       printf("line %d: %s\n", linecount, tok_name);
+     else {
+       printf("line %d: %s = %s\n", linecount, tok_name, yylval);
+       free(yylval);  /* Be good boys and clean up. */
+     }
+   };
+
+   return(0);
+}

@@ -1,0 +1,52 @@
+module Main where
+import System.Random
+
+
+main = do orders_of_the_day
+
+
+epsilon = 7
+
+orders_of_the_day  = 
+       do
+          putStrLn "Orders of the day:"
+          putStrLn "=================="
+          order_list
+
+actors = [ "Grocer1", "Grocer2", "Warehouse1", "Warehouse2", "Market1", "Market2" ] ;
+actions =  ["buy", "sell", "deliver", "pick up"]
+acted = ["rice", "asparagus", "lettuce", "apples", "oranges", "bread", "celery"]
+
+order_list = do
+              num <- (randomIO :: IO Int) 
+              let lim = num `mod` 100
+              order_list_helper lim
+
+order_list_helper 7 = do
+                       putStrLn "EPSILON"
+
+order_list_helper randNum = do
+                             order
+                             num <- (randomIO :: IO Int) 
+                             let lim = num `mod` 100
+                             order_list_helper lim 
+
+order = do
+         myactor <- pick_actor
+         myaction <- pick_action
+         myacted <- pick_acted
+         let line = "ORDER : " ++ myactor ++ " " ++ myaction ++ " " ++ myacted
+         putStrLn line
+
+pick_actor = atRandIndex actors
+
+pick_action = atRandIndex actions
+
+pick_acted = atRandIndex acted
+
+atRandIndex :: [a] -> IO a  -- note that this is gives itself an IO action
+atRandIndex l = do
+    i <- randomRIO (0, length l - 1)
+    return $ l !! i
+
+    

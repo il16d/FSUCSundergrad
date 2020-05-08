@@ -1,0 +1,48 @@
+
+;;; exports
+	
+	global mydiv
+	
+	section .text		
+
+
+;;;  mydiv
+
+; Expects:
+;
+; rax: dividend
+; rcx: divisor
+;
+; Returns:
+;
+; rax: Quotient
+; rdx: Remainder
+;
+; Scratch
+;
+; rbx: used for intermediate totals
+;
+; Expects nobody is doing anything funny, like dividing by zero or passing in a zero dividend
+
+
+mydiv:
+	push rbx		;Save subtractions total scratch register
+	xor rbx,rbx		;And whack it
+
+mydivloop:
+
+	cmp rax,rcx		;Compare BEFORE the subtraction
+	jl exitloop		;We've exhausted the dividend
+	sub rax,rcx		;Subtract a divisor
+	inc rbx			;Tally a subtraction
+	jmp mydivloop		;Go do it again, wee!!!
+
+exitloop:
+	mov rdx,rax		;Whatever is left in rax is the remainder
+	mov rax,rbx		;Return total as the quotient
+
+finish:
+	mov rax,rbx		;Return total as this is the quotient
+	pop rbx			;Return rbx to health
+
+	ret			;Return the world is safe for democracy

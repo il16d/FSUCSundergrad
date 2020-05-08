@@ -1,0 +1,16 @@
+
+program MYPROG
+{
+   variables :
+      var VAR1 ;
+
+   functions :
+      define FUNC1 ( var X )
+        {
+	   if ( X )
+	   then
+	      print ( X , X ) ;
+	   else
+	   
+	}
+}

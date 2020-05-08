@@ -1,0 +1,58 @@
+
+	extern getnum
+	extern putnum
+	extern usage
+	extern gcd
+
+	global start
+
+	section .text
+
+start:
+
+	;; check that there are two arguments
+	pop rax
+	cmp rax,3
+	jne usage
+
+	;; remove the pointer to the string for the program name
+	pop rax
+
+	;; now retrieve the point to the string for the first argument, answer comes back in r15
+	pop rax
+	call getnum
+	mov rbx,r15
+
+	;; now retrieve the point to the string for the second argument
+	pop rax
+	call getnum
+	mov rcx,r15
+
+	;; and now call our gcd; it expects its arguments in rbx and rcx, and returns its argument in rbx
+	call gcd
+
+	;; answer came back in rbx, time to call putnum, but it expects its arguments in rax
+	mov rax,rbx
+	call putnum
+
+	;; output an end-of-line
+	call puteoln
+
+	;; and call exit
+	mov rdi,0		; program ended normally
+	mov rax,60		; exit code
+	syscall
+
+
+puteoln:
+
+	mov rdi,1
+	mov rsi,eoln
+	mov rdx,1
+	mov rax,1
+	syscall
+
+	ret
+
+
+eoln:	db 10

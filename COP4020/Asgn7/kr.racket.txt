@@ -1,0 +1,40 @@
+#lang racket
+
+(require math/number-theory)
+
+
+(define (pollard n) 
+    (write "Attempting to factor N = ")
+    (write n)
+    (writeln " with Pollard rho algorithm from Knuth's Algorithm B in section 4.5.4 of TAOCP")
+    (pollard-helper n 5 2 1 1)
+)
+
+(define (pollard-helper n x xprime k l)
+    (define g (gcd (- xprime x) n))
+    
+    (cond 
+        [ (prime? n) n]
+        [ (equal? g 1) 
+            (define newx (with-modulus n (mod (+ (* x x) 1))))
+            (if (zero? (- k 1))
+                ; if k - 1 == 0: 
+                (pollard-helper n newx x (* 2 l) l )
+                ; else
+                (pollard-helper n newx xprime (- k 1) l)
+            )
+        ] 
+    
+        [ (equal? g n) "failed"]
+        [else 
+            (writeln g)
+            (pollard-helper (/ n g) (with-modulus n (mod x)) (with-modulus n (mod xprime)) k l) 
+        ] 
+    )
+)
+
+;(pollard 35)
+
+(define N (string->number (first (vector->list (current-command-line-arguments)))))
+
+(pollard N)

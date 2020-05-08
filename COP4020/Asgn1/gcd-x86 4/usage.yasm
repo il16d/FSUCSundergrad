@@ -1,0 +1,23 @@
+
+	global usage
+
+	section .text
+
+usage:
+
+	mov rdi,1
+	mov rsi,message
+	mov rdx,message_end - message
+	mov rax,1
+	syscall
+
+
+	;; and call exit
+	mov rdi,1		; program ended abnormally
+	mov rax,60		; exit code
+	syscall
+
+
+
+message: db 'usage: gcd NUM1 NUM2',10
+message_end

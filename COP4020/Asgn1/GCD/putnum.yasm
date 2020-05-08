@@ -1,0 +1,36 @@
+
+	global putnum
+
+putnum:
+
+;;; value is in rax, want to write its string representation out to stdout
+
+	mov	rbx,10
+	xor	r15,r15
+
+l:	
+	xor	rdx,rdx
+	div	rbx
+
+	add	rdx,0x30
+	push 	rdx
+	inc	r15
+	
+	cmp	rax,0
+	jne	l
+	
+l1:
+
+	mov	rdi,1		; send to stdout
+	mov	rsi,rsp		; first byte on stack
+	mov	rdx,1		; send one byte
+	mov	rax,1		; system call is to write(2)
+	syscall
+
+	pop	rdi
+	dec	r15
+	cmp	r15,0
+	jne	l1
+
+	ret
+	
