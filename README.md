@@ -31,7 +31,7 @@
     - Introduction to C++
  
 8. [COP3252 Readme.md ](COP3252/ "COP3252 Readme.md file")
- - Introduction to Java
+    - Introduction to Java
    
 9. [COP3330 Readme.md ](COP3330/ "COP3330 Readme.md file")
     - Introduction to Object-oriented using C++
