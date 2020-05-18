@@ -24,28 +24,28 @@
 5. [CIS4930-C# Readme.md ](CIS4930-C#/ "CIS4930-C# Readme.md file")
     - CS Elective Csharp
 
-6. [CIS4930Python Readme.md ](CIS4930Python/ "A5 Readme.md file")
+6. [CIS4930-Python Readme.md ](CIS4930-Python/ "A5 Readme.md file")
     - CS Elective Python 
     
 7. [COP3014 Readme.md ](COP3014/ "COP3014 Readme.md file")
     - Introduction to C++
  
-8. [COP3252 Readme.md ](COP3252/ "COP3252 Readme.md file")
+8. [COP3252-HustOnline Readme.md ](COP3252-HustOnline/ "COP3252 Readme.md file")
     - Introduction to Java
    
-9. [COP3330 Readme.md ](COP3330/ "COP3330 Readme.md file")
+9. [COP3330-LacherOnline Readme.md ](COP3330-LacherOnline/ "COP3330 Readme.md file")
     - Introduction to Object-oriented using C++
     
 10. [COP4020 Readme.md ](COP4020/ "COP4020 Readme.md file")
     - Programming languages
  
-11. [COP4530-Lacher Readme.md ](COP4530-Lacher/ "COP4530-Lacher Readme.md file")
+11. [COP4530-LacherOnline Readme.md ](COP4530-LacherOnline/ "COP4530-Lacher Readme.md file")
     - Data structures using C++
    
 12. [COP4610 Readme.md ](COP4610/ "COP4610 Readme.md file")
     - Operating systems
     
-13. [COP4656 Readme.md ](COP4656/ "COP4656 Readme.md file")
+13. [COP4656-HustOnline Readme.md ](COP4656-HustOnline/ "COP4656 Readme.md file")
     - Android mobile app programming using Java
     
 14. [COP4710 Readme.md ](COP4710/ "COP4710 Readme.md file")
